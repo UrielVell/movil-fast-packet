@@ -2,8 +2,17 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.MovilFastPacket" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+         <item name="colorPrimary">#FF6500</item>
     </style>
 
-    <style name="Theme.MovilFastPacket" parent="Base.Theme.MovilFastPacket" />
+    <style name="Theme.MovilFastPacket" parent="Base.Theme.MovilFastPacket" >
+        <item name="colorPrimary">#FF6500</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="BotonPrincipal" parent="Widget.AppCompat.Button">
+        <item name="android:background">#FF6500</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
 </resources>
