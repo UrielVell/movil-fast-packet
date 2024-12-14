@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
                             irPantallaDetallesEnvio(envio.idEnvio)
                         },
                         EditarEstadoEnvio = { envio ->
-                            irPanatallaEditarEstadoEnvio(envio.idEnvio)
+                            irPanatallaEditarEstadoEnvio(envio)
                         }
                         )
                 }else{
@@ -77,9 +77,10 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun irPanatallaEditarEstadoEnvio(idEnvio: Int){
+    fun irPanatallaEditarEstadoEnvio(envio : Envio){
         val intent = Intent(this@MainActivity, EstadoEnvio::class.java)
-        intent.putExtra("idEnvio", idEnvio)
+        var envioJson = Gson().toJson(envio)
+        intent.putExtra("envio", envioJson)
         startActivity(intent)
     }
 }

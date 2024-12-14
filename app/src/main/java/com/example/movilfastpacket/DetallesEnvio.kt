@@ -75,7 +75,7 @@ class DetallesEnvio : AppCompatActivity() {
         binding.tvDireccionOrigen.text = direccionCliente
         var direccionDestino = detallesEnvio.direccion.calle + ", #" + detallesEnvio.direccion.numero + ", "+ detallesEnvio.direccion.colonia + ", C.P. " + detallesEnvio.direccion.codigoPostal
         binding.tvDireccionDestino.text = direccionDestino
-        var contacto =  detallesEnvio.telefonoCliente + " / " + detallesEnvio.correoCliente
+        var contacto =  detallesEnvio.telefonoCliente + "\n" + detallesEnvio.correoCliente
         binding.tvContacto.text = contacto
     }
 

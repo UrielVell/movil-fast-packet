@@ -7,18 +7,6 @@
     android:background="#D9D9D9"
     tools:context=".EditarPerfil">
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/fondo_card"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5"
-        tools:srcCompat="@tools:sample/avatars" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout5"
         android:layout_width="0dp"
@@ -57,18 +45,6 @@
             app:srcCompat="?attr/actionModeCloseDrawable" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="146dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="147dp"
-        android:text="Nueva foto"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
     <EditText
         android:id="@+id/et_nombre"
         android:layout_width="0dp"
@@ -77,11 +53,12 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
+        android:hint="Nombre del colaborador"
         android:inputType="text"
         android:text="Nombre"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_nueva_foto" />
 
     <EditText
         android:id="@+id/et_apellido_paterno"
@@ -91,6 +68,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
+        android:hint="Apellido paterno del colaborador"
         android:inputType="text"
         android:text="Apellido paterno"
         app:layout_constraintEnd_toEndOf="parent"
@@ -106,6 +84,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
+        android:hint="Apellido materno del colaborador"
         android:inputType="text"
         android:text="Apellido materno"
         app:layout_constraintEnd_toEndOf="parent"
@@ -121,6 +100,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
+        android:hint="CURP del colaborador"
         android:inputType="text"
         android:text="CURP"
         app:layout_constraintEnd_toEndOf="parent"
@@ -136,6 +116,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
+        android:hint="Correo del colaborador"
         android:inputType="text"
         android:text="Correo"
         app:layout_constraintEnd_toEndOf="parent"
@@ -151,6 +132,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
+        android:hint="Contraseña del colaborador"
         android:inputType="text"
         android:text="Contraseña"
         app:layout_constraintEnd_toEndOf="parent"
@@ -162,10 +144,35 @@
         android:id="@+id/btn_editar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:text="Guardar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_password_edit" />
+
+    <ImageView
+        android:id="@+id/img_editar"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="131dp"
+        android:background="@drawable/fondo_card"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/btn_nueva_foto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="146dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="147dp"
+        android:text="Nueva foto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_editar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

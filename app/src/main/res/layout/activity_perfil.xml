@@ -8,7 +8,7 @@
     tools:context=".Perfil">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/img_foto"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="8dp"
@@ -35,11 +35,11 @@
         android:layout_width="0dp"
         android:layout_height="260dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2">
+        app:layout_constraintTop_toBottomOf="@+id/img_foto">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
