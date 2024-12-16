@@ -58,11 +58,7 @@ class EditarPerfil : AppCompatActivity() {
             }
         }
 
-        binding.btnNuevaFoto.setOnClickListener {
-            val intent = Intent(Intent.ACTION_PICK)
-            intent.type = "image/*"
-            selecionarFotoPerfil.launch(intent)
-        }
+
 
         binding.btnAtrasEditar.setOnClickListener {
             finish()
@@ -96,7 +92,7 @@ class EditarPerfil : AppCompatActivity() {
             .setStringBody(data)
             .asString().setCallback { e, result ->
                 if (e == null){
-                    Log.i("EDIT", result)
+                    Log.i("EDIT", colaboradorEdit.fotografia.toString())
                     obtenerRespuesta(result)
                 }else{
                     Toast.makeText(this@EditarPerfil, "Ocurrio un error al editar tu información", Toast.LENGTH_SHORT)
@@ -126,50 +122,6 @@ class EditarPerfil : AppCompatActivity() {
         binding.etCorreo.setText(colaborador.correo)
         binding.etPasswordEdit.setText(colaborador.password)
     }
-
-    private val selecionarFotoPerfil = this.registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
-            result: ActivityResult ->
-        if (result.resultCode ==  RESULT_OK){
-            val data =result.data
-            val fotoURI = data?.data
-            if (fotoURI != null) {
-                binding.imgEditar.setImageURI(fotoURI)
-                var fotoBase64 = uriToBase64(fotoURI)
-                if (!fotoBase64.toString().isEmpty()){
-                    colaborador.fotografia = fotoBase64.toString()
-                    Log.i("URI", fotoBase64.toString())
-                }
-            }
-        }
-    }
-
-    private fun uriToBase64(uri: Uri): String? {
-        return try {
-            // Abre el InputStream desde la URI
-            val inputStream = contentResolver.openInputStream(uri) ?: return null
-
-            // Convierte InputStream a un bitmap
-            val bitmap = BitmapFactory.decodeStream(inputStream)
-
-            // Comprueba que el bitmap no sea nulo
-            if (bitmap != null) {
-                // Comprime el bitmap para convertirlo a un array de bytes
-                val byteArrayOutputStream = ByteArrayOutputStream()
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream)
-                val byteArray = byteArrayOutputStream.toByteArray()
-
-                // Convierte el array de bytes a una cadena Base64
-                Base64.encodeToString(byteArray, Base64.DEFAULT)
-            } else {
-                null
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-            null
-        }
-    }
-
-
 
     private fun sonDatosValidos(nombre: String, apellidoPaterno: String,
                                 apellidoMaterno: String, curp: String,
