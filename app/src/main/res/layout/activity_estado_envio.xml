@@ -72,6 +72,12 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_envio">
 
         <RadioButton
+            android:id="@+id/rb_pendiente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pendiente" />
+
+        <RadioButton
             android:id="@+id/rb_transito"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

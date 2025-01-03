@@ -20,6 +20,8 @@ class AdapterEnvio (
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view){
         val noGuia: TextView = view.findViewById(R.id.tv_no_guia)
+        val estadoEnvio: TextView = view.findViewById(R.id.tv_estado)
+        val direccion: TextView = view.findViewById(R.id.tv_direccion)
         val btnVerDetalles: ImageButton = view.findViewById(R.id.btn_detalles_envio)
         val btnEditarEstado: ImageButton = view.findViewById(R.id.btn_editar_envio)
     }
@@ -33,6 +35,8 @@ class AdapterEnvio (
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val envio = listaEnvios[position]
         holder.noGuia.text = envio.noGuia
+        holder.estadoEnvio.text = envio.estatus
+        holder.direccion.text = envio.direccion
 
         holder.btnVerDetalles.setOnClickListener {
             VerDetallesEnvio(envio)

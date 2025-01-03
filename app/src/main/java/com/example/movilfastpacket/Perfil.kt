@@ -11,6 +11,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
 import com.example.movilfastpacket.databinding.ActivityMainBinding
 import com.example.movilfastpacket.databinding.ActivityPerfilBinding
 import com.example.movilfastpacket.poko.Colaborador
@@ -40,6 +41,10 @@ class Perfil : AppCompatActivity() {
         super.onStart()
         var idColaborador = intent.getStringExtra("idColaborador")
         var noPersonal = intent.getStringExtra("noPersonal")
+
+        binding.btnCerrarSesion.setOnClickListener {
+            mostrarDialogoPregunta()
+        }
         binding.btnEditarPerfil.setOnClickListener {
             irPantallaEditarPerfil()
         }
@@ -174,6 +179,30 @@ class Perfil : AppCompatActivity() {
 
         intent.putExtra("jsonColaborador", jsonColaborador)
         startActivity(intent)
+    }
+
+    private fun mostrarDialogoPregunta() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Cerrar Sesión")
+        builder.setMessage("¿Esta seguro de cerrar sesión?")
+
+        builder.setPositiveButton("Sí") { dialog, _ ->
+            dialog.dismiss()
+            cerrarSesion()
+        }
+
+        builder.setNegativeButton("Cancelar") { dialog, _ ->
+            dialog.dismiss()
+        }
+
+
+        val dialog = builder.create()
+        dialog.show()
+    }
+    private fun cerrarSesion() {
+        val intent = Intent(this@Perfil, Login::class.java)
+        startActivity(intent)
+        finishAffinity()
     }
 
     fun irAtras(){

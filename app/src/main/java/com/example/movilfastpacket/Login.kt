@@ -3,6 +3,7 @@ package com.example.movilfastpacket
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.example.movilfastpacket.databinding.ActivityLoginBinding
 import com.example.movilfastpacket.poko.LoginColaborador
@@ -18,6 +19,11 @@ class Login : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         val view =binding.root
         setContentView(view)
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        Log.i("EE", "dassdas")
     }
 
     override fun onStart() {

@@ -10,5 +10,6 @@ data class Envio(
     var idDireccionDestino: Int ?,
     var cliente: String ?,
     var conductor: String ?,
-    var estatus: String
+    var estatus: String,
+    var direccion: String
 )

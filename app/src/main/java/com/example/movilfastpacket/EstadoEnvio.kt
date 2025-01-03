@@ -30,17 +30,24 @@ class EstadoEnvio : AppCompatActivity() {
         envio = Gson().fromJson(jsonEnvio, Envio::class.java)
         cargarDatosEnvio(envio)
 
+        binding.btnAtrasEstadoEnvio.setOnClickListener {
+            finish()
+        }
+
         binding.btnGuardarEstatus.setOnClickListener {
             var comentarios = binding.etComentarios.text.toString()
             var estadoSeleccionado = 1
-            if (binding.rbDetenido.isChecked){
+            if (binding.rbTransito.isChecked){
                 estadoSeleccionado = 2
             }
-            if (binding.rbEntregado.isChecked){
+            if (binding.rbDetenido.isChecked){
                 estadoSeleccionado = 3
             }
-            if (binding.rbCancelado.isChecked){
+            if (binding.rbEntregado.isChecked){
                 estadoSeleccionado = 4
+            }
+            if (binding.rbCancelado.isChecked){
+                estadoSeleccionado = 5
             }
             if(validarEstado(envio.idEstadoEnvio,comentarios, estadoSeleccionado)){
                 actualizarEstado(envio.idEnvio, idColaborador.toString(), estadoSeleccionado, comentarios )
@@ -80,7 +87,7 @@ class EstadoEnvio : AppCompatActivity() {
 
     private fun validarEstado(idEstadoEnvio: Int, comentarios: String, estadoSeleccionado: Int): Boolean {
 
-        if ((estadoSeleccionado == 2 || estadoSeleccionado == 4) && comentarios.isEmpty()) {
+        if ((estadoSeleccionado == 3 || estadoSeleccionado == 5) && comentarios.isEmpty()) {
             Toast.makeText(this@EstadoEnvio, "Ingrese un comentario", Toast.LENGTH_SHORT).show()
             return false
         }
@@ -94,16 +101,20 @@ class EstadoEnvio : AppCompatActivity() {
     private fun cargarDatosEnvio(envio: Envio) {
         binding.tvEnvio.setText("Seleccione el nuevo estado del envio con el No. de Guia: ${envio.noGuia}")
         if(envio.idEstadoEnvio == 1){
-            binding.radioGroup.check(binding.rbTransito.id)
+            binding.radioGroup.check(binding.rbPendiente.id)
         }
         if(envio.idEstadoEnvio == 2){
+            binding.radioGroup.check(binding.rbTransito.id)
+        }
+        if(envio.idEstadoEnvio == 3){
             binding.radioGroup.check(binding.rbDetenido.id)
 
         }
-        if(envio.idEstadoEnvio == 3){
-            binding.radioGroup.check(binding.rbEntregado.id)
-        }
         if(envio.idEstadoEnvio == 4){
+            binding.radioGroup.check(binding.rbEntregado.id)
+            binding.btnGuardarEstatus.isEnabled = false
+        }
+        if(envio.idEstadoEnvio == 5){
             binding.radioGroup.check(binding.rbCancelado.id)
             binding.btnGuardarEstatus.isEnabled = false
         }
