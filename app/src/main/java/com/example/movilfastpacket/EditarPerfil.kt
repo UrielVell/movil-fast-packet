@@ -92,7 +92,6 @@ class EditarPerfil : AppCompatActivity() {
             .setStringBody(data)
             .asString().setCallback { e, result ->
                 if (e == null){
-                    Log.i("EDIT", colaboradorEdit.fotografia.toString())
                     obtenerRespuesta(result)
                 }else{
                     Toast.makeText(this@EditarPerfil, "Ocurrio un error al editar tu información", Toast.LENGTH_SHORT)

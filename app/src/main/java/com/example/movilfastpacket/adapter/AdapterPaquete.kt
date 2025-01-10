@@ -20,7 +20,7 @@ class AdapterPaquete (context: Context, private val data: List<Paquete>) : Array
         val dimensiones = view.findViewById<TextView>(R.id.tv_dimensiones)
 
         descripcion.text = paquete.descripcion
-        var dimesionesPaquete = paquete.altura.toString() + "x" + paquete.peso.toString()+"x"+paquete.profundidad.toString()
+        var dimesionesPaquete = paquete.altura.toString() + "x" + paquete.ancho.toString()+"x"+paquete.profundidad.toString()
         dimensiones.text = dimesionesPaquete
 
         return view

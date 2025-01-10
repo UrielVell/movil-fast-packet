@@ -23,7 +23,7 @@ class Login : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        Log.i("EE", "dassdas")
+        Log.i("EE", "dassdas ")
     }
 
     override fun onStart() {
@@ -52,7 +52,6 @@ class Login : AppCompatActivity() {
 
     fun verificarCredenciales (noPersonal: String, password : String){
         Ion.getDefault(this@Login).conscryptMiddleware.enable(false)
-
         Ion.with(this@Login)
             .load("POST", "${Constantes().URL_WS}autenticacion/loginMovil")
             .setHeader("Content-Type","application/x-www-form-urlencoded")
